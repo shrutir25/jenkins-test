@@ -32,9 +32,16 @@ def transformIntoStep(inputString) {
     return {
         node {
             stage("${inputString}") {
-                echo "start ${inputString}"
-                sleep 10
-                echo "end ${inputString}"
+                stage("initialise"){
+                    echo "start initialise ${inputString}"
+                    sleep 10
+                    echo "stop initialise ${inputString}"
+                }
+                stage("build"){
+                    echo "start build ${inputString}"
+                    sleep 10
+                    echo "stop build ${inputString}"
+                }
             }
         }
     }
