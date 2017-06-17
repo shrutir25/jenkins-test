@@ -7,6 +7,7 @@ node('all') {
         def locations = locations_str.tokenize('[ \t\n]+')
 
         for (i=0; i < locations.size(); i++) {
+            env.LOCATION = locations[i]
             stage("${LOCATION}") {
             }
         }
