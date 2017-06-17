@@ -7,6 +7,11 @@ node('all') {
         def locations = locations_str.tokenize('[ \t\n]+')
         def executions = [:]
 
+        for(int i = 0; i < locations.size(); i++) {
+            executions[locations[i]] = create_execution(locations[i])
+            }
+
+        parallel executions
         def create_execution(String dist) {
             stage("${dist}") {
                 cmd = { 
@@ -17,12 +22,6 @@ node('all') {
                 return cmd
             }
         }
-
-        for(int i = 0; i < locations.size(); i++) {
-            executions[locations[i]] = create_execution(locations[i])
-            }
-
-        parallel executions
     }       
 }    
 
