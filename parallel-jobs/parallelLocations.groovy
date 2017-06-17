@@ -31,7 +31,7 @@ node('all') {
 def transformIntoStep(inputString) {
     return {
         node {
-            stage(${inputString}) {
+            stage("${inputString}") {
                 echo inputString
             }
         }
