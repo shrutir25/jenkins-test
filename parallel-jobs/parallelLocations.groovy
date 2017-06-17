@@ -9,7 +9,8 @@ node('all') {
         for (i=0; i < locations.size(); i++) {
             stage("${LOCATION}") {
             }
-        }         
+        }
+    }             
 }    
 
 
