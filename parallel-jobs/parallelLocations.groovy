@@ -28,6 +28,7 @@ node('all') {
     }       
 }    
 
+// Function
 def transformIntoStep(inputString) {
     return {
         node {
