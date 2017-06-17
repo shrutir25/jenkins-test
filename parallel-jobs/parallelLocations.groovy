@@ -26,19 +26,15 @@ node('all') {
         // hence the above.
         parallel stepsForParallel
 
-        // Take the string and echo it.
-        def transformIntoStep(inputString) {
-            // We need to wrap what we return in a Groovy closure, or else it's invoked
-            // when this method is called, not when we pass it to parallel.
-            // To do this, you need to wrap the code below in { }, and either return
-            // that explicitly, or use { -> } syntax.
-            return {
-                node {
-                    echo inputString
-                }
-            }
-        }
     }       
 }    
+
+def transformIntoStep(inputString) {
+    return {
+        node {
+            echo inputString
+        }
+    }
+}
 
 
