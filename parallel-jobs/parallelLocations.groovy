@@ -28,7 +28,7 @@ node('all') {
     }       
 }    
 
-// Function
+// Function to check
 def transformIntoStep(inputString) {
     return {
         node {
